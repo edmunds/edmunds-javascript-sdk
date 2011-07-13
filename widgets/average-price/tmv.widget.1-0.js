@@ -241,8 +241,12 @@ EDM.prototype = {
 				myInput.setAttribute("value", "Get Pricing Info");
 				var that = this;
 				myInput.onclick = function() {
+					if (document.getElementById(that.getBaseId() + "_tmv")) {
+						document.getElementById(that.getRoot()).removeChild(document.getElementById(that.getBaseId() + "_tmv"));
+					}
 					var st = (document.getElementById(that.getBaseId() + '_year').value.indexOf('USED') === -1) ? 'calculatenewtmv' : 'calculatetypicallyequippedusedtmv';
-					that.vehicleApi.invoke('/api/tmv/tmvservice/'+st, {styleid:obj.value, zip:'90019'}, function(data) {
+					var zipcode = (document.getElementById(that.getBaseId() + '_zipcode').value) ? document.getElementById(that.getBaseId() + '_zipcode').value : '90019';
+					that.vehicleApi.invoke('/api/tmv/tmvservice/'+st, {styleid:obj.value, zip: zipcode}, function(data) {
 						var that2 = that;
 						var tmv = (data.tmv.nationalBasePrice.tmv) ? data.tmv.nationalBasePrice.tmv : data.tmv.nationalBasePrice.usedTmvRetail;
 						var aux = document.createElement('div');

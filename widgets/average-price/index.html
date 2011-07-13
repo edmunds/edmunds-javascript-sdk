@@ -1,0 +1,29 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Widget - Edmunds True Market Value</title>
+	<style type="text/css" media="screen">
+		select {
+			width: 200px;
+		}
+		#mywidget {
+			background: #fee;
+			width:300px;
+		}
+	</style>
+</head>
+<body>
+	<div id="mywidget"></div>
+	<script type="text/javascript" charset="utf-8" src="tmv.widget.1-0.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		(function() {
+			var myWidget = new EDM.TMV('g2dgxhfatcspkunbb7m33zv6', {root: 'mywidget'});
+			myWidget.init();
+			myWidget.subscribe('init_complete', function() {
+				myWidget.render();
+			});
+		})();
+	</script>
+</body>
+</html>

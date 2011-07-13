@@ -1,0 +1,363 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns:yui="http://yuilibrary.com/rdf/1.0/yui.rdf#">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title>API: Vehicle   vehicle.api.js  (YUI Library)</title>
+
+	<link rel="stylesheet" type="text/css" href="assets/reset-fonts-grids-min.css?stamp=1310329625.85" />
+	<link rel="stylesheet" type="text/css" href="assets/api.css?stamp=1310329625.85" />
+
+    <script type="text/javascript" src="assets/api-js?stamp=1310329625.85"></script>
+    <script type="text/javascript" src="assets/ac-js?stamp=1310329625.85"></script>
+</head>
+
+<body id="yahoo-com">
+
+<div id="doc3" class="yui-t2">
+	<div id="hd">
+        <h1><a href="http://developer.edmunds.com/" title="Edmunds API JavaScript SDK">Edmunds API JavaScript SDK</a></h1>
+        <h3>Vehicle&nbsp; <span class="subtitle">1.0.0</span></h3>
+        <a href="./index.html" title="Edmunds API JavaScript SDK">Edmunds API JavaScript SDK</a> 
+            &gt; <a href="./module_vehicle.html" title="Vehicle">Vehicle</a>
+                
+                 &gt; vehicle.api.js (source view) 
+        <form onsubmit="return false">
+            <div id="propertysearch">
+                Search: <input autocomplete="off" id="searchinput" />
+                <div id="searchresults">
+                    &nbsp;
+                </div>
+            </div>
+        </form>
+	</div>
+
+	<div id="bd">
+		<div id="yui-main">
+			<div class="yui-b">
+            <form action="#" name="yui-classopts-form" method="get" id="yui-classopts-form">
+                <fieldset>
+                    <legend>Filters</legend>
+                <span class="classopts"><input type="checkbox" name="show_private" id="show_private" /> <label for="show_private">Show Private</label></span>
+                <span class="classopts"><input type="checkbox" name="show_protected" id="show_protected" /> <label for="show_protected">Show Protected</label></span>
+                <span class="classopts"><input type="checkbox" name="show_deprecated" id="show_deprecated" /> <label for="show_deprecated">Show Deprecated</label></span>
+                </fieldset>
+            </form>
+
+                    <div id="srcout">
+                        <style>
+                            #doc3 .classopts { display:none; }
+                        </style>
+<div class="highlight"><pre><span class="cm">/**</span>
+<span class="cm"> * The Vehicle API commonly used methods and structures</span>
+<span class="cm"> * @module Vehicle</span>
+<span class="cm"> * @requires EDMUNDSAPI</span>
+<span class="cm"> */</span>
+<span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">window</span><span class="p">.</span><span class="nx">EDMUNDSAPI</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Edmunds API: Core class is not loaded.&#39;</span><span class="p">);</span>
+	
+	<span class="cm">/**</span>
+<span class="cm">	 * Vehice Data and Repositories</span>
+<span class="cm">	 *</span>
+<span class="cm">	 * @constructor</span>
+<span class="cm">     * @class Vehicle</span>
+<span class="cm">  	 * @namespace EDMUNDSAPI</span>
+<span class="cm">	 * @extends EDMUNDSAPI</span>
+<span class="cm">	 */</span>
+	<span class="nb">window</span><span class="p">.</span><span class="nx">EDMUNDSAPI</span><span class="p">.</span><span class="nx">Vehicle</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nb">window</span><span class="p">.</span><span class="nx">EDMUNDSAPI</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>
+	<span class="p">};</span>
+	
+	<span class="nb">window</span><span class="p">.</span><span class="nx">EDMUNDSAPI</span><span class="p">.</span><span class="nx">Vehicle</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">window</span><span class="p">.</span><span class="nx">EDMUNDSAPI</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">proto</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">EDMUNDSAPI</span><span class="p">.</span><span class="nx">Vehicle</span><span class="p">.</span><span class="nx">prototype</span><span class="p">;</span>
+	
+	<span class="c1">//=========================================== GENERICS</span>
+	<span class="cm">/**</span>
+<span class="cm">	* Get a list of available makes in this particular year</span>
+<span class="cm">	*</span>
+<span class="cm">	* @method getListOfMakes</span>
+<span class="cm">	* @param function callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+<span class="cm">	* @return {string} The URL of the REST call to Edmunds&#39; API Service</span>
+<span class="cm">	*/</span>
+	<span class="nx">proto</span><span class="p">.</span><span class="nx">getListOfMakes</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;/api/vehicle-directory-ajax/findmakes&#39;</span><span class="p">,</span> <span class="p">{},</span> <span class="nx">callback</span><span class="p">);</span>
+	<span class="p">};</span>
+	<span class="cm">/**</span>
+<span class="cm">	* Get a list of available models of a particular make in this particular year</span>
+<span class="cm">	*</span>
+<span class="cm">	* @method getListOfModelsByMake</span>
+<span class="cm">	* @param string make The vehicle make (use niceName value)</span>
+<span class="cm">	* @param function callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+<span class="cm">	* @return {string} The URL of the REST call to Edmunds&#39; API Service</span>
+<span class="cm">	*/</span>
+	<span class="nx">proto</span><span class="p">.</span><span class="nx">getListOfModelsByMake</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">make</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;/api/vehicle-directory-ajax/findmakemodels&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;make&quot;</span><span class="o">:</span> <span class="nx">make</span><span class="p">},</span> <span class="nx">callback</span><span class="p">);</span>
+	<span class="p">};</span>
+	<span class="cm">/**</span>
+<span class="cm">	* Get a list of available vehicle types (will return an array)</span>
+<span class="cm">	*</span>
+<span class="cm">	* @method getListOfTypes</span>
+<span class="cm">	* @param function callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+<span class="cm">	* @return {string} The URL of the REST call to Edmunds&#39; API Service</span>
+<span class="cm">	*/</span>
+	<span class="nx">proto</span><span class="p">.</span><span class="nx">getListOfTypes</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;/api/vehicle/stylerepository/findallvehicletypes&#39;</span><span class="p">,</span> <span class="p">{},</span> <span class="nx">callback</span><span class="p">);</span>
+	<span class="p">};</span>
+	<span class="cm">/**</span>
+<span class="cm">	* Get a the details on a particular vehicle</span>
+<span class="cm">	*</span>
+<span class="cm">	* @method getVehicle</span>
+<span class="cm">	* @param string make The vehicle make (use niceName value)</span>
+<span class="cm">	* @param string model The vehicle model (use niceName value)</span>
+<span class="cm">	* @param int year The year of the make/model</span>
+<span class="cm">	* @param function callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+<span class="cm">	* @return {string} The URL of the REST call to Edmunds&#39; API Service</span>
+<span class="cm">	*/</span>
+	<span class="nx">proto</span><span class="p">.</span><span class="nx">getVehicle</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">make</span><span class="p">,</span> <span class="nx">model</span><span class="p">,</span> <span class="nx">year</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;/api/vehicle/modelyearrepository/foryearmakemodel&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;make&quot;</span><span class="o">:</span><span class="nx">make</span><span class="p">,</span> <span class="s2">&quot;model&quot;</span><span class="o">:</span><span class="nx">model</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="o">:</span><span class="nx">year</span><span class="p">},</span> <span class="nx">callback</span><span class="p">);</span>
+		<span class="c1">//return this.invoke(&#39;/api/vehicle/&#39;+make+&#39;/&#39;+model+&#39;/&#39;+year, {}, callback);</span>
+	<span class="p">};</span>
+	
+	<span class="c1">//======================================= Make Repository Calls</span>
+	<span class="cm">/**</span>
+<span class="cm">	* Get a list of all makes in our databases</span>
+<span class="cm">	*</span>
+<span class="cm">	* @method getMakes</span>
+<span class="cm">	* @param function callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+<span class="cm">	* @return {string} The URL of the REST call to Edmunds&#39; API Service</span>
+<span class="cm">	*/</span>
+	<span class="nx">proto</span><span class="p">.</span><span class="nx">getMakes</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;/api/vehicle/makerepository/findall&#39;</span><span class="p">,</span> <span class="p">{},</span> <span class="nx">callback</span><span class="p">);</span>
+	<span class="p">};</span>
+	<span class="cm">/**</span>
+<span class="cm">	* Get a list of available makes in this particular year</span>
+<span class="cm">	*</span>
+<span class="cm">	* @method getMakesByYear</span>
+<span class="cm">	* @param int year The year of the make</span>
+<span class="cm">	* @param function callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+<span class="cm">	* @return {string} The URL of the REST call to Edmunds&#39; API Service</span>
+<span class="cm">	*/</span>
+	<span class="nx">proto</span><span class="p">.</span><span class="nx">getMakesByYear</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">year</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;/api/vehicle/makerepository/findmakesbymodelyear&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;year&quot;</span><span class="o">:</span> <span class="nx">year</span><span class="p">},</span> <span class="nx">callback</span><span class="p">);</span>
+	<span class="p">};</span>
+	<span class="cm">/**</span>
+<span class="cm">	* Get a list of available makes in this particular year</span>
+<span class="cm">	*</span>
+<span class="cm">	* @method getMakesByState</span>
+<span class="cm">	* @param string state The state of the make (new|used|future)</span>
+<span class="cm">	* @param function callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+<span class="cm">	* @return {string} The URL of the REST call to Edmunds&#39; API Service</span>
+<span class="cm">	*/</span>
+	<span class="nx">proto</span><span class="p">.</span><span class="nx">getMakesByState</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;/api/vehicle/makerepository/findmakesbypublicationstate&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;state&quot;</span><span class="o">:</span> <span class="nx">state</span><span class="p">},</span> <span class="nx">callback</span><span class="p">);</span>
+	<span class="p">};</span>
+	<span class="cm">/**</span>
+<span class="cm">	* Get a list of new makes only</span>
+<span class="cm">	*</span>
+<span class="cm">	* @method getNewMakes</span>
+<span class="cm">	* @param function callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+<span class="cm">	* @return {string} The URL of the REST call to Edmunds&#39; API Service</span>
+<span class="cm">	*/</span>
+	<span class="nx">proto</span><span class="p">.</span><span class="nx">getNewMakes</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;/api/vehicle/makerepository/findnewmakes&#39;</span><span class="p">,</span> <span class="p">{},</span> <span class="nx">callback</span><span class="p">);</span>
+	<span class="p">};</span>
+	<span class="cm">/**</span>
+<span class="cm">	* Get a list of used makes only</span>
+<span class="cm">	*</span>
+<span class="cm">	* @method getUsedMakes</span>
+<span class="cm">	* @param function callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+<span class="cm">	* @return {string} The URL of the REST call to Edmunds&#39; API Service</span>
+<span class="cm">	*/</span>
+	<span class="nx">proto</span><span class="p">.</span><span class="nx">getUsedMakes</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;/api/vehicle/makerepository/findusedmakes&#39;</span><span class="p">,</span> <span class="p">{},</span> <span class="nx">callback</span><span class="p">);</span>
+	<span class="p">};</span>
+	<span class="cm">/**</span>
+<span class="cm">	* Get a list of all future makes</span>
+<span class="cm">	*</span>
+<span class="cm">	* @method getFutureMakes</span>
+<span class="cm">	* @param function callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+<span class="cm">	* @return {string} The URL of the REST call to Edmunds&#39; API Service</span>
+<span class="cm">	*/</span>
+	<span class="nx">proto</span><span class="p">.</span><span class="nx">getFutureMakes</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;/api/vehicle/makerepository/findfuturemakes&#39;</span><span class="p">,</span> <span class="p">{},</span> <span class="nx">callback</span><span class="p">);</span>
+	<span class="p">};</span>
+	<span class="cm">/**</span>
+<span class="cm">	* Get a the details of a particular make</span>
+<span class="cm">	*</span>
+<span class="cm">	* @method getMakeById</span>
+<span class="cm">	* @param int id The id of the make</span>
+<span class="cm">	* @param function callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+<span class="cm">	* @return {string} The URL of the REST call to Edmunds&#39; API Service</span>
+<span class="cm">	*/</span>
+	<span class="nx">proto</span><span class="p">.</span><span class="nx">getMakeById</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;/api/vehicle/makerepository/findbyid&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="nx">id</span><span class="p">},</span> <span class="nx">callback</span><span class="p">);</span>
+	<span class="p">};</span>
+	<span class="cm">/**</span>
+<span class="cm">	* Get the details of a particular name</span>
+<span class="cm">	*</span>
+<span class="cm">	* @method getMakeByName</span>
+<span class="cm">	* @param string name The name of the make (use niceName value)</span>
+<span class="cm">	* @param function callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+<span class="cm">	* @return {string} The URL of the REST call to Edmunds&#39; API Service</span>
+<span class="cm">	*/</span>
+	<span class="nx">proto</span><span class="p">.</span><span class="nx">getMakeByName</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;/api/vehicle/makerepository/findmakebyname&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="nx">name</span><span class="p">},</span> <span class="nx">callback</span><span class="p">);</span>
+		<span class="c1">//return this.invoke(&#39;/api/vehicle/&#39;+name, {}, callback);</span>
+	<span class="p">};</span>
+	
+	<span class="c1">//========================================================= Model Repository Calls</span>
+	<span class="cm">/**</span>
+<span class="cm">	* Get model details for a particular make and year</span>
+<span class="cm">	*</span>
+<span class="cm">	* @method getModelsByMakeAndYear</span>
+<span class="cm">	* @param string make The vehicle make (use niceName value)</span>
+<span class="cm">	* @param string year The vehicle year</span>
+<span class="cm">	* @param function callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+<span class="cm">	* @return {string} The URL of the REST call to Edmunds&#39; API Service</span>
+<span class="cm">	*/</span>
+	<span class="nx">proto</span><span class="p">.</span><span class="nx">getModelsByMakeAndYear</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">make</span><span class="p">,</span> <span class="nx">year</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;/api/vehicle/modelrepository/findmodelsbymakeandyear&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;make&quot;</span><span class="o">:</span> <span class="nx">make</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="o">:</span> <span class="nx">year</span><span class="p">},</span> <span class="nx">callback</span><span class="p">);</span>
+	<span class="p">};</span>
+	<span class="cm">/**</span>
+<span class="cm">	* Get model details for a particular make and a publication state</span>
+<span class="cm">	*</span>
+<span class="cm">	* @method getModelsByMakeAndState</span>
+<span class="cm">	* @param string make The vehicle make (use niceName value)</span>
+<span class="cm">	* @param string state The vehicle publication state (new|used|future)</span>
+<span class="cm">	* @param function callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+<span class="cm">	* @return {string} The URL of the REST call to Edmunds&#39; API Service</span>
+<span class="cm">	*/</span>
+	<span class="nx">proto</span><span class="p">.</span><span class="nx">getModelsByMakeAndState</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">make</span><span class="p">,</span> <span class="nx">state</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;/api/vehicle/modelrepository/findmodelsbymakeandpublicationstate&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;make&quot;</span><span class="o">:</span> <span class="nx">make</span><span class="p">,</span> <span class="s2">&quot;state&quot;</span><span class="o">:</span> <span class="nx">state</span><span class="p">},</span> <span class="nx">callback</span><span class="p">);</span>
+	<span class="p">};</span>
+	<span class="cm">/**</span>
+<span class="cm">	* Get model details for a specific make ID</span>
+<span class="cm">	*</span>
+<span class="cm">	* @method getModelsByMakeId</span>
+<span class="cm">	* @param int id The make ID</span>
+<span class="cm">	* @param function callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+<span class="cm">	* @return {string} The URL of the REST call to Edmunds&#39; API Service</span>
+<span class="cm">	*/</span>
+	<span class="nx">proto</span><span class="p">.</span><span class="nx">getModelsByMakeId</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;/api/vehicle/modelrepository/findbymakeid&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;makeid&quot;</span><span class="o">:</span> <span class="nx">id</span><span class="p">},</span> <span class="nx">callback</span><span class="p">);</span>
+	<span class="p">};</span>
+	<span class="cm">/**</span>
+<span class="cm">	* Get model details for a speicifc make name</span>
+<span class="cm">	*</span>
+<span class="cm">	* @method getModelsByMakeName</span>
+<span class="cm">	* @param string name The make name (use niceName value)</span>
+<span class="cm">	* @param function callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+<span class="cm">	* @return {string} The URL of the REST call to Edmunds&#39; API Service</span>
+<span class="cm">	*/</span>
+	<span class="nx">proto</span><span class="p">.</span><span class="nx">getModelsByMakeName</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;/api/vehicle/modelrepository/findmodelsbymake&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;make&quot;</span><span class="o">:</span> <span class="nx">name</span><span class="p">},</span> <span class="nx">callback</span><span class="p">);</span>
+	<span class="p">};</span>
+	<span class="cm">/**</span>
+<span class="cm">	* Get list of future models for a specific make ID</span>
+<span class="cm">	*</span>
+<span class="cm">	* @method getFutureModelsByMakeId</span>
+<span class="cm">	* @param int id The make ID</span>
+<span class="cm">	* @param function callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+<span class="cm">	* @return {string} The URL of the REST call to Edmunds&#39; API Service</span>
+<span class="cm">	*/</span>
+	<span class="nx">proto</span><span class="p">.</span><span class="nx">getFutureModelsByMakeId</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;/api/vehicle/modelrepository/findfuturemodelsbymakeid&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;makeId&quot;</span><span class="o">:</span> <span class="nx">id</span><span class="p">},</span> <span class="nx">callback</span><span class="p">);</span>
+	<span class="p">};</span>
+	<span class="cm">/**</span>
+<span class="cm">	* Get list of used models for a specific make ID</span>
+<span class="cm">	*</span>
+<span class="cm">	* @method getUsedModelsByMakeId</span>
+<span class="cm">	* @param int id The make ID</span>
+<span class="cm">	* @param function callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+<span class="cm">	* @return {string} The URL of the REST call to Edmunds&#39; API Service</span>
+<span class="cm">	*/</span>
+	<span class="nx">proto</span><span class="p">.</span><span class="nx">getUsedModelsByMakeId</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;/api/vehicle/modelrepository/findusedmodelsbymakeid&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;makeId&quot;</span><span class="o">:</span> <span class="nx">id</span><span class="p">},</span> <span class="nx">callback</span><span class="p">);</span>
+	<span class="p">};</span>
+	<span class="cm">/**</span>
+<span class="cm">	* Get list of new models for a specific make ID</span>
+<span class="cm">	*</span>
+<span class="cm">	* @method getNewModelsByMakeId</span>
+<span class="cm">	* @param int id The make ID</span>
+<span class="cm">	* @param function callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+<span class="cm">	* @return {string} The URL of the REST call to Edmunds&#39; API Service</span>
+<span class="cm">	*/</span>
+	<span class="nx">proto</span><span class="p">.</span><span class="nx">getNewModelsByMakeId</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;/api/vehicle/modelrepository/findnewmodelsbymakeid&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;makeId&quot;</span><span class="o">:</span> <span class="nx">id</span><span class="p">},</span> <span class="nx">callback</span><span class="p">);</span>
+	<span class="p">};</span>
+	<span class="cm">/**</span>
+<span class="cm">	* Get mode details for this specific model ID</span>
+<span class="cm">	*</span>
+<span class="cm">	* @method getModelById</span>
+<span class="cm">	* @param int id The model ID</span>
+<span class="cm">	* @param function callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+<span class="cm">	* @return {string} The URL of the REST call to Edmunds&#39; API Service</span>
+<span class="cm">	*/</span>
+	<span class="nx">proto</span><span class="p">.</span><span class="nx">getModelById</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;/api/vehicle/modelrepository/findbyid&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="nx">id</span><span class="p">},</span> <span class="nx">callback</span><span class="p">);</span>
+	<span class="p">};</span>
+	<span class="cm">/**</span>
+<span class="cm">	* Get model details for a specific make and model names</span>
+<span class="cm">	*</span>
+<span class="cm">	* @method getModelByMakeAndModelName</span>
+<span class="cm">	* @param string make The make name (use niceName value)</span>
+<span class="cm">	* @param string model The model name (use niceName value)</span>
+<span class="cm">	* @param function callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+<span class="cm">	* @return {string} The URL of the REST call to Edmunds&#39; API Service</span>
+<span class="cm">	*/</span>
+	<span class="nx">proto</span><span class="p">.</span><span class="nx">getModelByMakeAndModelName</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">make</span><span class="p">,</span> <span class="nx">model</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;/api/vehicle/modelrepository/findmodelbymakemodelname&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;make&quot;</span><span class="o">:</span> <span class="nx">make</span><span class="p">,</span> <span class="s2">&quot;model&quot;</span><span class="o">:</span> <span class="nx">model</span><span class="p">},</span> <span class="nx">callback</span><span class="p">);</span>
+		<span class="c1">//return this.invoke(&#39;/api/vehicle/&#39;+make+&#39;/&#39;+model, {}, callback);</span>
+	<span class="p">};</span>
+	
+	<span class="c1">// Year Repository</span>
+	
+<span class="p">})();</span>
+</pre></div>
+                    </div>
+			</div>
+		</div>
+		<div class="yui-b">
+            <div class="nav">
+
+                    <div id="moduleList" class="module">
+                        <h4>Modules</h4>
+                        <ul class="content">
+                                <li class="selected"><a href="module_Vehicle.html" title="Vehicle">Vehicle</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="classList" class="module">
+                        <h4>Classes</h4>
+                        <ul class="content">
+                                <li class=""><a href="EDMUNDSAPI.html" title="EDMUNDSAPI">EDMUNDSAPI</a></li>
+                                <li class=""><a href="EDMUNDSAPI.Vehicle.html" title="EDMUNDSAPI.Vehicle">EDMUNDSAPI.Vehicle</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="fileList" class="module">
+                        <h4>Files</h4>
+                        <ul class="content">        
+                                <li class=""><a href="core.api.js.html" title="core.api.js">core.api.js</a></li>
+                                <li class=""><a href="dealer.api.js.html" title="dealer.api.js">dealer.api.js</a></li>
+                                <li class=""><a href="region.api.js.html" title="region.api.js">region.api.js</a></li>
+                                <li class="selected"><a href="vehicle.api.js.html" title="vehicle.api.js">vehicle.api.js</a></li>
+                        </ul>
+                    </div>
+
+
+
+
+
+            </div>
+		</div>
+	</div>
+	<div id="ft">
+        <hr />
+        Copyright &copy; 2011 Yahoo! Inc. All rights reserved.
+	</div>
+</div>
+<script type="text/javascript">
+    ALL_YUI_PROPS = [{"url": "EDMUNDSAPI.html#method_getBaseUrl", "access": "", "host": "EDMUNDSAPI", "type": "method", "name": "getBaseUrl"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getFutureMakes", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getFutureMakes"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getFutureModelsByMakeId", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getFutureModelsByMakeId"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getListOfMakes", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getListOfMakes"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getListOfModelsByMake", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getListOfModelsByMake"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getListOfTypes", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getListOfTypes"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getMakeById", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getMakeById"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getMakeByName", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getMakeByName"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getMakes", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getMakes"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getMakesByState", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getMakesByState"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getMakesByYear", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getMakesByYear"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getModelById", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getModelById"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getModelByMakeAndModelName", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getModelByMakeAndModelName"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getModelsByMakeAndState", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getModelsByMakeAndState"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getModelsByMakeAndYear", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getModelsByMakeAndYear"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getModelsByMakeId", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getModelsByMakeId"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getModelsByMakeName", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getModelsByMakeName"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getNewMakes", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getNewMakes"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getNewModelsByMakeId", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getNewModelsByMakeId"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getUsedMakes", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getUsedMakes"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getUsedModelsByMakeId", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getUsedModelsByMakeId"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getVehicle", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getVehicle"}, {"url": "EDMUNDSAPI.html#method_getVersion", "access": "", "host": "EDMUNDSAPI", "type": "method", "name": "getVersion"}, {"url": "EDMUNDSAPI.html#method_invoke", "access": "", "host": "EDMUNDSAPI", "type": "method", "name": "invoke"}, {"url": "EDMUNDSAPI.html#method_setVersion", "access": "", "host": "EDMUNDSAPI", "type": "method", "name": "setVersion"}];
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Edmunds JavaScript API Example: getAllMakes</title>
+	<script type="text/javascript" src="../src/core.api.js"></script>
+	<script type="text/javascript" src="../src/vehicle.api.js"></script>
+	<script type="text/javascript">
+		function handleIt(data) {
+			console.log(data);
+		}
+		var v = new EDMUNDSAPI.Vehicle('g2dgxhfatcspkunbb7m33zv6');
+		v.getAllModelsByMake('acura', 'handleIt');
+	</script>
+</head>
+
+<body>
+
+
+</body>
+</html>

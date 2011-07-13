@@ -1,0 +1,1481 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns:yui="http://yuilibrary.com/rdf/1.0/yui.rdf#">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title>API: Vehicle  EDMUNDSAPI.Vehicle   (YUI Library)</title>
+
+	<link rel="stylesheet" type="text/css" href="assets/reset-fonts-grids-min.css?stamp=1310329625.85" />
+	<link rel="stylesheet" type="text/css" href="assets/api.css?stamp=1310329625.85" />
+
+    <script type="text/javascript" src="assets/api-js?stamp=1310329625.85"></script>
+    <script type="text/javascript" src="assets/ac-js?stamp=1310329625.85"></script>
+</head>
+
+<body id="yahoo-com">
+
+<div id="doc3" class="yui-t2">
+	<div id="hd">
+        <h1><a href="http://developer.edmunds.com/" title="Edmunds API JavaScript SDK">Edmunds API JavaScript SDK</a></h1>
+        <h3>Vehicle&nbsp; <span class="subtitle">1.0.0</span></h3>
+        <a href="./index.html" title="Edmunds API JavaScript SDK">Edmunds API JavaScript SDK</a> 
+            &gt; <a href="./module_vehicle.html" title="Vehicle">Vehicle</a>
+                 &gt; EDMUNDSAPI.Vehicle 
+                
+        <form onsubmit="return false">
+            <div id="propertysearch">
+                Search: <input autocomplete="off" id="searchinput" />
+                <div id="searchresults">
+                    &nbsp;
+                </div>
+            </div>
+        </form>
+	</div>
+
+	<div id="bd">
+		<div id="yui-main">
+			<div class="yui-b">
+            <form action="#" name="yui-classopts-form" method="get" id="yui-classopts-form">
+                <fieldset>
+                    <legend>Filters</legend>
+                <span class="classopts"><input type="checkbox" name="show_private" id="show_private" /> <label for="show_private">Show Private</label></span>
+                <span class="classopts"><input type="checkbox" name="show_protected" id="show_protected" /> <label for="show_protected">Show Protected</label></span>
+                <span class="classopts"><input type="checkbox" name="show_deprecated" id="show_deprecated" /> <label for="show_deprecated">Show Deprecated</label></span>
+                </fieldset>
+            </form>
+
+                    <h2>
+                        
+
+                        
+                        
+                            Class <b property="yui:name">EDMUNDSAPI.Vehicle</b>
+                        <span class="extends">
+                           - extends <a href="EDMUNDSAPI.html" title="EDMUNDSAPI">EDMUNDSAPI</a>
+                        </span>
+
+                    </h2>
+                    <!-- class tree goes here -->
+                    
+                
+  
+
+                    <div class="summary description" property="yui:description">
+                        Vehice Data and Repositories
+                    </div>
+
+                        <div class="section constructor details" rel="yui:constructor" resource="#constructor">
+                        <h3 id="constructor">Constructor</h3>
+                        <div class="content">
+                            <div class="detail">
+                                <strong property="yui:name">EDMUNDSAPI.Vehicle</strong>
+                                <code>
+                                    (
+                                    )
+                                </code>
+                                <div class="description">
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div rel="yui:properties" resource="#properties">
+
+                        <div rel="yui:inheritance">
+                        <div class="section field inheritance" rel="yui:superclass"  resource="EDMUNDSAPI.html">
+                            <h4>Properties inherited from <a href="EDMUNDSAPI.html" property="yui:name" title="EDMUNDSAPI">EDMUNDSAPI</a>:</h4>
+                            <div class="content" rel="yui:properties">
+                                <code>
+                                    
+                                </code>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div rel="yui:methods" resource="#methods">
+                        <div class="section method details">
+                            <h3 id="methods">Methods</h3>
+                            <div class="content">
+                                    <div class="" rel="yui:method" resource="#method_getFutureMakes">
+                                    <h4>
+                                        <a name="method_getFutureMakes">getFutureMakes</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        string
+                                            <strong property="yui:name">getFutureMakes</strong>
+                                           (
+                                                
+                                                        
+                                                         function
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Get a list of all future makes
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">function</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        string
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo">The URL of the REST call to Edmunds' API Service</dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_getFutureModelsByMakeId">
+                                    <h4>
+                                        <a name="method_getFutureModelsByMakeId">getFutureModelsByMakeId</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        string
+                                            <strong property="yui:name">getFutureModelsByMakeId</strong>
+                                           (
+                                                
+                                                        
+                                                         int
+                                                    
+                                                
+                                                        , 
+                                                         function
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Get list of future models for a specific make ID
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">int</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> id The make ID</span>
+                                                        </dd>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">function</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        string
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo">The URL of the REST call to Edmunds' API Service</dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_getListOfMakes">
+                                    <h4>
+                                        <a name="method_getListOfMakes">getListOfMakes</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        string
+                                            <strong property="yui:name">getListOfMakes</strong>
+                                           (
+                                                
+                                                        
+                                                         function
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Get a list of available makes in this particular year
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">function</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        string
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo">The URL of the REST call to Edmunds' API Service</dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_getListOfModelsByMake">
+                                    <h4>
+                                        <a name="method_getListOfModelsByMake">getListOfModelsByMake</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        string
+                                            <strong property="yui:name">getListOfModelsByMake</strong>
+                                           (
+                                                
+                                                        
+                                                         string
+                                                    
+                                                
+                                                        , 
+                                                         function
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Get a list of available models of a particular make in this particular year
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">string</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> make The vehicle make (use niceName value)</span>
+                                                        </dd>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">function</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        string
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo">The URL of the REST call to Edmunds' API Service</dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_getListOfTypes">
+                                    <h4>
+                                        <a name="method_getListOfTypes">getListOfTypes</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        string
+                                            <strong property="yui:name">getListOfTypes</strong>
+                                           (
+                                                
+                                                        
+                                                         function
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Get a list of available vehicle types (will return an array)
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">function</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        string
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo">The URL of the REST call to Edmunds' API Service</dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_getMakeById">
+                                    <h4>
+                                        <a name="method_getMakeById">getMakeById</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        string
+                                            <strong property="yui:name">getMakeById</strong>
+                                           (
+                                                
+                                                        
+                                                         int
+                                                    
+                                                
+                                                        , 
+                                                         function
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Get a the details of a particular make
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">int</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> id The id of the make</span>
+                                                        </dd>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">function</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        string
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo">The URL of the REST call to Edmunds' API Service</dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_getMakeByName">
+                                    <h4>
+                                        <a name="method_getMakeByName">getMakeByName</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        string
+                                            <strong property="yui:name">getMakeByName</strong>
+                                           (
+                                                
+                                                        
+                                                         string
+                                                    
+                                                
+                                                        , 
+                                                         function
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Get the details of a particular name
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">string</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> name The name of the make (use niceName value)</span>
+                                                        </dd>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">function</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        string
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo">The URL of the REST call to Edmunds' API Service</dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_getMakes">
+                                    <h4>
+                                        <a name="method_getMakes">getMakes</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        string
+                                            <strong property="yui:name">getMakes</strong>
+                                           (
+                                                
+                                                        
+                                                         function
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Get a list of all makes in our databases
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">function</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        string
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo">The URL of the REST call to Edmunds' API Service</dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_getMakesByState">
+                                    <h4>
+                                        <a name="method_getMakesByState">getMakesByState</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        string
+                                            <strong property="yui:name">getMakesByState</strong>
+                                           (
+                                                
+                                                        
+                                                         string
+                                                    
+                                                
+                                                        , 
+                                                         function
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Get a list of available makes in this particular year
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">string</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> state The state of the make (new|used|future)</span>
+                                                        </dd>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">function</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        string
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo">The URL of the REST call to Edmunds' API Service</dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_getMakesByYear">
+                                    <h4>
+                                        <a name="method_getMakesByYear">getMakesByYear</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        string
+                                            <strong property="yui:name">getMakesByYear</strong>
+                                           (
+                                                
+                                                        
+                                                         int
+                                                    
+                                                
+                                                        , 
+                                                         function
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Get a list of available makes in this particular year
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">int</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> year The year of the make</span>
+                                                        </dd>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">function</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        string
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo">The URL of the REST call to Edmunds' API Service</dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_getModelById">
+                                    <h4>
+                                        <a name="method_getModelById">getModelById</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        string
+                                            <strong property="yui:name">getModelById</strong>
+                                           (
+                                                
+                                                        
+                                                         int
+                                                    
+                                                
+                                                        , 
+                                                         function
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Get mode details for this specific model ID
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">int</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> id The model ID</span>
+                                                        </dd>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">function</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        string
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo">The URL of the REST call to Edmunds' API Service</dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_getModelByMakeAndModelName">
+                                    <h4>
+                                        <a name="method_getModelByMakeAndModelName">getModelByMakeAndModelName</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        string
+                                            <strong property="yui:name">getModelByMakeAndModelName</strong>
+                                           (
+                                                
+                                                        
+                                                         string
+                                                    
+                                                
+
+                                                
+                                                        , 
+                                                         function
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Get model details for a specific make and model names
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">string</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> make The make name (use niceName value)</span>
+                                                        </dd>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">string</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> model The model name (use niceName value)</span>
+                                                        </dd>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">function</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        string
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo">The URL of the REST call to Edmunds' API Service</dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_getModelsByMakeAndState">
+                                    <h4>
+                                        <a name="method_getModelsByMakeAndState">getModelsByMakeAndState</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        string
+                                            <strong property="yui:name">getModelsByMakeAndState</strong>
+                                           (
+                                                
+                                                        
+                                                         string
+                                                    
+                                                
+
+                                                
+                                                        , 
+                                                         function
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Get model details for a particular make and a publication state
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">string</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> make The vehicle make (use niceName value)</span>
+                                                        </dd>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">string</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> state The vehicle publication state (new|used|future)</span>
+                                                        </dd>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">function</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        string
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo">The URL of the REST call to Edmunds' API Service</dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_getModelsByMakeAndYear">
+                                    <h4>
+                                        <a name="method_getModelsByMakeAndYear">getModelsByMakeAndYear</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        string
+                                            <strong property="yui:name">getModelsByMakeAndYear</strong>
+                                           (
+                                                
+                                                        
+                                                         string
+                                                    
+                                                
+
+                                                
+                                                        , 
+                                                         function
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Get model details for a particular make and year
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">string</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> make The vehicle make (use niceName value)</span>
+                                                        </dd>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">string</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> year The vehicle year</span>
+                                                        </dd>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">function</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        string
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo">The URL of the REST call to Edmunds' API Service</dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_getModelsByMakeId">
+                                    <h4>
+                                        <a name="method_getModelsByMakeId">getModelsByMakeId</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        string
+                                            <strong property="yui:name">getModelsByMakeId</strong>
+                                           (
+                                                
+                                                        
+                                                         int
+                                                    
+                                                
+                                                        , 
+                                                         function
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Get model details for a specific make ID
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">int</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> id The make ID</span>
+                                                        </dd>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">function</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        string
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo">The URL of the REST call to Edmunds' API Service</dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_getModelsByMakeName">
+                                    <h4>
+                                        <a name="method_getModelsByMakeName">getModelsByMakeName</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        string
+                                            <strong property="yui:name">getModelsByMakeName</strong>
+                                           (
+                                                
+                                                        
+                                                         string
+                                                    
+                                                
+                                                        , 
+                                                         function
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Get model details for a speicifc make name
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">string</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> name The make name (use niceName value)</span>
+                                                        </dd>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">function</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        string
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo">The URL of the REST call to Edmunds' API Service</dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_getNewMakes">
+                                    <h4>
+                                        <a name="method_getNewMakes">getNewMakes</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        string
+                                            <strong property="yui:name">getNewMakes</strong>
+                                           (
+                                                
+                                                        
+                                                         function
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Get a list of new makes only
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">function</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        string
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo">The URL of the REST call to Edmunds' API Service</dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_getNewModelsByMakeId">
+                                    <h4>
+                                        <a name="method_getNewModelsByMakeId">getNewModelsByMakeId</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        string
+                                            <strong property="yui:name">getNewModelsByMakeId</strong>
+                                           (
+                                                
+                                                        
+                                                         int
+                                                    
+                                                
+                                                        , 
+                                                         function
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Get list of new models for a specific make ID
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">int</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> id The make ID</span>
+                                                        </dd>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">function</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        string
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo">The URL of the REST call to Edmunds' API Service</dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_getUsedMakes">
+                                    <h4>
+                                        <a name="method_getUsedMakes">getUsedMakes</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        string
+                                            <strong property="yui:name">getUsedMakes</strong>
+                                           (
+                                                
+                                                        
+                                                         function
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Get a list of used makes only
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">function</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        string
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo">The URL of the REST call to Edmunds' API Service</dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_getUsedModelsByMakeId">
+                                    <h4>
+                                        <a name="method_getUsedModelsByMakeId">getUsedModelsByMakeId</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        string
+                                            <strong property="yui:name">getUsedModelsByMakeId</strong>
+                                           (
+                                                
+                                                        
+                                                         int
+                                                    
+                                                
+                                                        , 
+                                                         function
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Get list of used models for a specific make ID
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">int</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> id The make ID</span>
+                                                        </dd>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">function</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        string
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo">The URL of the REST call to Edmunds' API Service</dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_getVehicle">
+                                    <h4>
+                                        <a name="method_getVehicle">getVehicle</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        string
+                                            <strong property="yui:name">getVehicle</strong>
+                                           (
+                                                
+                                                        
+                                                         string
+                                                    
+                                                
+
+                                                
+                                                        , 
+                                                         int
+                                                    
+                                                
+                                                        , 
+                                                         function
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Get a the details on a particular vehicle
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">string</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> make The vehicle make (use niceName value)</span>
+                                                        </dd>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">string</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> model The vehicle model (use niceName value)</span>
+                                                        </dd>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">int</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> year The year of the make/model</span>
+                                                        </dd>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">function</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> callback The callback function to be invoked when the response is returned (JSONP implementation)</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        string
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo">The URL of the REST call to Edmunds' API Service</dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div rel="yui:inheritance">                    
+                            <div class="section field inheritance" rel="yui:superclass"  resource="EDMUNDSAPI.html">
+                                <h4>Methods inherited from <a href="EDMUNDSAPI.html" property="yui:name" title="EDMUNDSAPI">EDMUNDSAPI</a>:</h4>
+                                <div class="content" rel="yui:methods">
+                                    <code>
+                                            <span rel="yui:method" resource="EDMUNDSAPI.html#method_getBaseUrl">                                        
+                                            <a class="" href="EDMUNDSAPI.html#method_getBaseUrl" property="yui:name" title="getBaseUrl">getBaseUrl</a><span class="">,</span>
+                                            </span>
+                                            <span rel="yui:method" resource="EDMUNDSAPI.html#method_getVersion">                                        
+                                            <a class="" href="EDMUNDSAPI.html#method_getVersion" property="yui:name" title="getVersion">getVersion</a><span class="">,</span>
+                                            </span>
+                                            <span rel="yui:method" resource="EDMUNDSAPI.html#method_invoke">                                        
+                                            <a class="" href="EDMUNDSAPI.html#method_invoke" property="yui:name" title="invoke">invoke</a><span class="">,</span>
+                                            </span>
+                                            <span rel="yui:method" resource="EDMUNDSAPI.html#method_setVersion">                                        
+                                            <a class="" href="EDMUNDSAPI.html#method_setVersion" property="yui:name" title="setVersion">setVersion</a>
+                                            </span>
+                                    </code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div rel="yui:events" resource="#events">
+
+
+                    </div>
+
+                    <div rel="yui:attributes" resource="#configattributes">
+
+                        <div rel="yui:inheritance">                    
+                        <div class="section field inheritance" rel="yui:superclass"  resource="EDMUNDSAPI.html">
+                            <h4>Configuration attributes inherited from <a href="EDMUNDSAPI.html" property="yui:name" title="EDMUNDSAPI">EDMUNDSAPI</a>:</h4>
+                            <div class="content" rel="yui:attributes">
+                                <code>
+
+                                </code>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+			</div>
+		</div>
+		<div class="yui-b">
+            <div class="nav">
+
+                    <div id="moduleList" class="module">
+                        <h4>Modules</h4>
+                        <ul class="content">
+                                <li class="selected"><a href="module_Vehicle.html" title="Vehicle">Vehicle</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="classList" class="module">
+                        <h4>Classes</h4>
+                        <ul class="content">
+                                <li class=""><a href="EDMUNDSAPI.html" title="EDMUNDSAPI">EDMUNDSAPI</a></li>
+                                <li class="selected"><a href="EDMUNDSAPI.Vehicle.html" title="EDMUNDSAPI.Vehicle">EDMUNDSAPI.Vehicle</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="fileList" class="module">
+                        <h4>Files</h4>
+                        <ul class="content">        
+                                <li class=""><a href="core.api.js.html" title="core.api.js">core.api.js</a></li>
+                                <li class=""><a href="dealer.api.js.html" title="dealer.api.js">dealer.api.js</a></li>
+                                <li class=""><a href="region.api.js.html" title="region.api.js">region.api.js</a></li>
+                                <li class=""><a href="vehicle.api.js.html" title="vehicle.api.js">vehicle.api.js</a></li>
+                        </ul>
+                    </div>
+
+
+                    <div id="methodsList" class="module">
+                        <h4>Methods</h4>
+                        <ul class="content">        
+                                <li class=""><a href="#method_getFutureMakes" title="getFutureMakes">getFutureMakes</a></li>
+                                <li class=""><a href="#method_getFutureModelsByMakeId" title="getFutureModelsByMakeId">getFutureModelsByMakeId</a></li>
+                                <li class=""><a href="#method_getListOfMakes" title="getListOfMakes">getListOfMakes</a></li>
+                                <li class=""><a href="#method_getListOfModelsByMake" title="getListOfModelsByMake">getListOfModelsByMake</a></li>
+                                <li class=""><a href="#method_getListOfTypes" title="getListOfTypes">getListOfTypes</a></li>
+                                <li class=""><a href="#method_getMakeById" title="getMakeById">getMakeById</a></li>
+                                <li class=""><a href="#method_getMakeByName" title="getMakeByName">getMakeByName</a></li>
+                                <li class=""><a href="#method_getMakes" title="getMakes">getMakes</a></li>
+                                <li class=""><a href="#method_getMakesByState" title="getMakesByState">getMakesByState</a></li>
+                                <li class=""><a href="#method_getMakesByYear" title="getMakesByYear">getMakesByYear</a></li>
+                                <li class=""><a href="#method_getModelById" title="getModelById">getModelById</a></li>
+                                <li class=""><a href="#method_getModelByMakeAndModelName" title="getModelByMakeAndModelName">getModelByMakeAndModelName</a></li>
+                                <li class=""><a href="#method_getModelsByMakeAndState" title="getModelsByMakeAndState">getModelsByMakeAndState</a></li>
+                                <li class=""><a href="#method_getModelsByMakeAndYear" title="getModelsByMakeAndYear">getModelsByMakeAndYear</a></li>
+                                <li class=""><a href="#method_getModelsByMakeId" title="getModelsByMakeId">getModelsByMakeId</a></li>
+                                <li class=""><a href="#method_getModelsByMakeName" title="getModelsByMakeName">getModelsByMakeName</a></li>
+                                <li class=""><a href="#method_getNewMakes" title="getNewMakes">getNewMakes</a></li>
+                                <li class=""><a href="#method_getNewModelsByMakeId" title="getNewModelsByMakeId">getNewModelsByMakeId</a></li>
+                                <li class=""><a href="#method_getUsedMakes" title="getUsedMakes">getUsedMakes</a></li>
+                                <li class=""><a href="#method_getUsedModelsByMakeId" title="getUsedModelsByMakeId">getUsedModelsByMakeId</a></li>
+                                <li class=""><a href="#method_getVehicle" title="getVehicle">getVehicle</a></li>
+                        </ul>
+                    </div>
+
+
+
+            </div>
+		</div>
+	</div>
+	<div id="ft">
+        <hr />
+        Copyright &copy; 2011 Yahoo! Inc. All rights reserved.
+	</div>
+</div>
+<script type="text/javascript">
+    ALL_YUI_PROPS = [{"url": "EDMUNDSAPI.html#method_getBaseUrl", "access": "", "host": "EDMUNDSAPI", "type": "method", "name": "getBaseUrl"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getFutureMakes", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getFutureMakes"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getFutureModelsByMakeId", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getFutureModelsByMakeId"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getListOfMakes", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getListOfMakes"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getListOfModelsByMake", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getListOfModelsByMake"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getListOfTypes", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getListOfTypes"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getMakeById", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getMakeById"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getMakeByName", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getMakeByName"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getMakes", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getMakes"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getMakesByState", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getMakesByState"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getMakesByYear", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getMakesByYear"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getModelById", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getModelById"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getModelByMakeAndModelName", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getModelByMakeAndModelName"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getModelsByMakeAndState", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getModelsByMakeAndState"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getModelsByMakeAndYear", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getModelsByMakeAndYear"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getModelsByMakeId", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getModelsByMakeId"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getModelsByMakeName", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getModelsByMakeName"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getNewMakes", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getNewMakes"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getNewModelsByMakeId", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getNewModelsByMakeId"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getUsedMakes", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getUsedMakes"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getUsedModelsByMakeId", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getUsedModelsByMakeId"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getVehicle", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getVehicle"}, {"url": "EDMUNDSAPI.html#method_getVersion", "access": "", "host": "EDMUNDSAPI", "type": "method", "name": "getVersion"}, {"url": "EDMUNDSAPI.html#method_invoke", "access": "", "host": "EDMUNDSAPI", "type": "method", "name": "invoke"}, {"url": "EDMUNDSAPI.html#method_setVersion", "access": "", "host": "EDMUNDSAPI", "type": "method", "name": "setVersion"}];
+</script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns:yui="http://yuilibrary.com/rdf/1.0/yui.rdf#">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title>API: Vehicle   core.api.js  (YUI Library)</title>
+
+	<link rel="stylesheet" type="text/css" href="assets/reset-fonts-grids-min.css?stamp=1310329625.85" />
+	<link rel="stylesheet" type="text/css" href="assets/api.css?stamp=1310329625.85" />
+
+    <script type="text/javascript" src="assets/api-js?stamp=1310329625.85"></script>
+    <script type="text/javascript" src="assets/ac-js?stamp=1310329625.85"></script>
+</head>
+
+<body id="yahoo-com">
+
+<div id="doc3" class="yui-t2">
+	<div id="hd">
+        <h1><a href="http://developer.edmunds.com/" title="Edmunds API JavaScript SDK">Edmunds API JavaScript SDK</a></h1>
+        <h3>Vehicle&nbsp; <span class="subtitle">1.0.0</span></h3>
+        <a href="./index.html" title="Edmunds API JavaScript SDK">Edmunds API JavaScript SDK</a> 
+            &gt; <a href="./module_vehicle.html" title="Vehicle">Vehicle</a>
+                
+                 &gt; core.api.js (source view) 
+        <form onsubmit="return false">
+            <div id="propertysearch">
+                Search: <input autocomplete="off" id="searchinput" />
+                <div id="searchresults">
+                    &nbsp;
+                </div>
+            </div>
+        </form>
+	</div>
+
+	<div id="bd">
+		<div id="yui-main">
+			<div class="yui-b">
+            <form action="#" name="yui-classopts-form" method="get" id="yui-classopts-form">
+                <fieldset>
+                    <legend>Filters</legend>
+                <span class="classopts"><input type="checkbox" name="show_private" id="show_private" /> <label for="show_private">Show Private</label></span>
+                <span class="classopts"><input type="checkbox" name="show_protected" id="show_protected" /> <label for="show_protected">Show Protected</label></span>
+                <span class="classopts"><input type="checkbox" name="show_deprecated" id="show_deprecated" /> <label for="show_deprecated">Show Deprecated</label></span>
+                </fieldset>
+            </form>
+
+                    <div id="srcout">
+                        <style>
+                            #doc3 .classopts { display:none; }
+                        </style>
+<div class="highlight"><pre><span class="cm">/**</span>
+<span class="cm"> * Core functionality for the Edmunds API JavaScript SDK</span>
+<span class="cm"> *</span>
+<span class="cm"> * @class EDMUNDSAPI</span>
+<span class="cm"> */</span>
+<span class="kd">function</span> <span class="nx">EDMUNDSAPI</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
+	<span class="cm">/**</span>
+<span class="cm">	 * Assigned API Key. Register for an API Key &lt;a href=&quot;http://developer.edmunds.com/apps/register&quot;&gt;here&lt;/a&gt; </span>
+<span class="cm">	 *</span>
+<span class="cm">	 * @config _api_key</span>
+<span class="cm">	 * @private</span>
+<span class="cm">	 * @type string</span>
+<span class="cm">	 */</span>
+	<span class="kd">var</span> <span class="nx">_api_key</span> <span class="o">=</span> <span class="nx">key</span><span class="p">;</span>
+	<span class="cm">/**</span>
+<span class="cm">	 * The API version</span>
+<span class="cm">	 *</span>
+<span class="cm">	 * @config _api_version</span>
+<span class="cm">	 * @private</span>
+<span class="cm">	 * @type string</span>
+<span class="cm">	 */</span>
+	<span class="kd">var</span> <span class="nx">_api_version</span> <span class="o">=</span> <span class="s2">&quot;v1&quot;</span><span class="p">;</span>
+	<span class="cm">/**</span>
+<span class="cm">	 * The base URL for the API</span>
+<span class="cm">	 *</span>
+<span class="cm">	 * @property _base_url</span>
+<span class="cm">	 * @private</span>
+<span class="cm">	 * @type string</span>
+<span class="cm">	 */</span>
+	<span class="kd">var</span> <span class="nx">_base_url</span> <span class="o">=</span> <span class="s2">&quot;http://api.edmunds.com/&quot;</span><span class="p">;</span>
+	<span class="cm">/**</span>
+<span class="cm">	 * The API response format</span>
+<span class="cm">	 *</span>
+<span class="cm">	 * @property _response_format</span>
+<span class="cm">	 * @private</span>
+<span class="cm">	 * @type string</span>
+<span class="cm">	 */</span>
+	<span class="kd">var</span> <span class="nx">_response_format</span> <span class="o">=</span> <span class="s1">&#39;json&#39;</span><span class="p">;</span>
+	<span class="cm">/**</span>
+<span class="cm">	 * The document HEAD element</span>
+<span class="cm">	 *</span>
+<span class="cm">	 * @property _head</span>
+<span class="cm">	 * @private</span>
+<span class="cm">	 * @type object</span>
+<span class="cm">	 */</span>
+	<span class="kd">var</span> <span class="nx">_head</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;head&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+	
+	<span class="cm">/**</span>
+<span class="cm">	 * The base URL for the API</span>
+<span class="cm">	 *</span>
+<span class="cm">	 * @method _serializeParams</span>
+<span class="cm">	 * @private</span>
+<span class="cm">	 * @param object JSON object of parameters and their values</span>
+<span class="cm">	 * @return {string} Serialized parameters in the form of a query string</span>
+<span class="cm">	 */</span>
+	<span class="kd">function</span> <span class="nx">_serializeParams</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+		<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">if</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">key</span><span class="p">))</span> <span class="p">{</span>
+				<span class="k">if</span> <span class="p">(</span><span class="nx">str</span> <span class="o">!==</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="nx">str</span> <span class="o">+=</span> <span class="s2">&quot;&amp;&quot;</span><span class="p">;</span>
+		   		<span class="nx">str</span> <span class="o">+=</span> <span class="nx">key</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">+</span> <span class="nx">params</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="k">return</span> <span class="nx">str</span><span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="cm">/**</span>
+<span class="cm">	 * The base URL for the API</span>
+<span class="cm">	 *</span>
+<span class="cm">	 * @method getBaseUrl</span>
+<span class="cm">	 * @param void</span>
+<span class="cm">	 * @return {string} API URL stub</span>
+<span class="cm">	 */</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">getBaseUrl</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">_base_url</span> <span class="o">+</span> <span class="nx">_api_version</span><span class="p">;</span>
+	<span class="p">};</span>
+	<span class="cm">/**</span>
+<span class="cm">	 * The base URL for the API</span>
+<span class="cm">	 *</span>
+<span class="cm">	 * @method getVersion</span>
+<span class="cm">	 * @param void</span>
+<span class="cm">	 * @return {string} API version</span>
+<span class="cm">	 */</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">getVersion</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">_api_version</span><span class="p">;</span>
+	<span class="p">};</span>
+	<span class="cm">/**</span>
+<span class="cm">	 * The base URL for the API</span>
+<span class="cm">	 *</span>
+<span class="cm">	 * @method setVersion</span>
+<span class="cm">	 * @param void</span>
+<span class="cm">	 * @return {string} API version</span>
+<span class="cm">	 */</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">setVersion</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">version</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">_api_version</span> <span class="o">=</span> <span class="nx">version</span><span class="p">;</span>
+		<span class="k">return</span> <span class="nx">_api_version</span><span class="p">;</span>
+	<span class="p">};</span>
+	<span class="cm">/**</span>
+<span class="cm">	 * Make the API REST call</span>
+<span class="cm">	 *</span>
+<span class="cm">	 * @method invoke</span>
+<span class="cm">	 * @param string method The API method to be invoked</span>
+<span class="cm">	 * @param object params JSON object of method parameters and their values</span>
+<span class="cm">	 * @param function callback The JavaScript function to be invoked when the results are returned (JSONP implementation)</span>
+<span class="cm">	 * @return {string} API REST call URL</span>
+<span class="cm">	 */</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">invoke</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">method</span><span class="p">,</span> <span class="nx">params</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kd">var</span> <span class="nx">qs</span> <span class="o">=</span> <span class="nx">_serializeParams</span><span class="p">(</span><span class="nx">params</span><span class="p">);</span>
+		<span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getBaseUrl</span><span class="p">();</span>
+		<span class="kd">var</span> <span class="nx">uniq</span> <span class="o">=</span> <span class="s1">&#39;cb&#39;</span><span class="o">+</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getTime</span><span class="p">();</span>
+		<span class="nx">EDMUNDSAPI</span><span class="p">[</span><span class="nx">uniq</span><span class="p">]</span> <span class="o">=</span> <span class="nx">callback</span><span class="p">;</span>
+		<span class="nx">qs</span> <span class="o">=</span> <span class="p">(</span><span class="nx">qs</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;?&#39;</span> <span class="o">+</span> <span class="nx">qs</span> <span class="o">+</span> <span class="s1">&#39;&amp;api_key=&#39;</span> <span class="o">+</span> <span class="nx">_api_key</span> <span class="o">+</span> <span class="s2">&quot;&amp;fmt=&quot;</span> <span class="o">+</span> <span class="nx">_response_format</span> <span class="o">:</span> <span class="s1">&#39;?api_key=&#39;</span> <span class="o">+</span> <span class="nx">_api_key</span> <span class="o">+</span> <span class="s2">&quot;&amp;fmt=&quot;</span> <span class="o">+</span> <span class="nx">_response_format</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">rest_call</span> <span class="o">=</span> <span class="nx">url</span> <span class="o">+</span> <span class="nx">method</span> <span class="o">+</span> <span class="nx">qs</span> <span class="o">+</span> <span class="s2">&quot;&amp;callback=EDMUNDSAPI.&quot;</span><span class="o">+</span><span class="nx">uniq</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">js</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">);</span>
+		<span class="nx">js</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="s1">&#39;text/javascript&#39;</span><span class="p">;</span>
+		<span class="nx">js</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">rest_call</span><span class="p">;</span>
+		<span class="nx">_head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">js</span><span class="p">);</span>
+		<span class="k">return</span> <span class="nx">rest_call</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+                    </div>
+			</div>
+		</div>
+		<div class="yui-b">
+            <div class="nav">
+
+                    <div id="moduleList" class="module">
+                        <h4>Modules</h4>
+                        <ul class="content">
+                                <li class="selected"><a href="module_Vehicle.html" title="Vehicle">Vehicle</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="classList" class="module">
+                        <h4>Classes</h4>
+                        <ul class="content">
+                                <li class=""><a href="EDMUNDSAPI.html" title="EDMUNDSAPI">EDMUNDSAPI</a></li>
+                                <li class=""><a href="EDMUNDSAPI.Vehicle.html" title="EDMUNDSAPI.Vehicle">EDMUNDSAPI.Vehicle</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="fileList" class="module">
+                        <h4>Files</h4>
+                        <ul class="content">        
+                                <li class="selected"><a href="core.api.js.html" title="core.api.js">core.api.js</a></li>
+                                <li class=""><a href="dealer.api.js.html" title="dealer.api.js">dealer.api.js</a></li>
+                                <li class=""><a href="region.api.js.html" title="region.api.js">region.api.js</a></li>
+                                <li class=""><a href="vehicle.api.js.html" title="vehicle.api.js">vehicle.api.js</a></li>
+                        </ul>
+                    </div>
+
+
+
+
+
+            </div>
+		</div>
+	</div>
+	<div id="ft">
+        <hr />
+        Copyright &copy; 2011 Yahoo! Inc. All rights reserved.
+	</div>
+</div>
+<script type="text/javascript">
+    ALL_YUI_PROPS = [{"url": "EDMUNDSAPI.html#method_getBaseUrl", "access": "", "host": "EDMUNDSAPI", "type": "method", "name": "getBaseUrl"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getFutureMakes", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getFutureMakes"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getFutureModelsByMakeId", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getFutureModelsByMakeId"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getListOfMakes", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getListOfMakes"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getListOfModelsByMake", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getListOfModelsByMake"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getListOfTypes", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getListOfTypes"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getMakeById", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getMakeById"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getMakeByName", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getMakeByName"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getMakes", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getMakes"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getMakesByState", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getMakesByState"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getMakesByYear", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getMakesByYear"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getModelById", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getModelById"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getModelByMakeAndModelName", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getModelByMakeAndModelName"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getModelsByMakeAndState", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getModelsByMakeAndState"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getModelsByMakeAndYear", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getModelsByMakeAndYear"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getModelsByMakeId", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getModelsByMakeId"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getModelsByMakeName", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getModelsByMakeName"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getNewMakes", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getNewMakes"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getNewModelsByMakeId", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getNewModelsByMakeId"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getUsedMakes", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getUsedMakes"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getUsedModelsByMakeId", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getUsedModelsByMakeId"}, {"url": "EDMUNDSAPI.Vehicle.html#method_getVehicle", "access": "", "host": "EDMUNDSAPI.Vehicle", "type": "method", "name": "getVehicle"}, {"url": "EDMUNDSAPI.html#method_getVersion", "access": "", "host": "EDMUNDSAPI", "type": "method", "name": "getVersion"}, {"url": "EDMUNDSAPI.html#method_invoke", "access": "", "host": "EDMUNDSAPI", "type": "method", "name": "invoke"}, {"url": "EDMUNDSAPI.html#method_setVersion", "access": "", "host": "EDMUNDSAPI", "type": "method", "name": "setVersion"}];
+</script>
+</body>
+</html>

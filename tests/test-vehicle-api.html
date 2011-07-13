@@ -1,0 +1,65 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Edmunds JavaScript API Example: getAllMakes</title>
+</head>
+
+<body>
+	<div id="rest_calls"></div>
+	<script type="text/javascript" src="../src/core.api.js"></script>
+	<script type="text/javascript" src="../src/vehicle.api.js"></script>
+	<script type="text/javascript">
+		(function() {
+			function handleIt(data) {
+				console.log(data);
+			}
+			function printCall(res) {
+				res = res || 'No REST call was supplied.';
+				var para = document.createElement('p');
+				para.innerHTML = 'REST Call: <a href="'+res+'">'+res+'</a>';
+				document.getElementById('rest_calls').appendChild(para);
+			}
+			var res;
+			var v = new EDMUNDSAPI.Vehicle('g2dgxhfatcspkunbb7m33zv6');
+			//res = v.getListOfMakes(handleIt);
+			//res = v.getListOfModelsByMake('aston-martin', handleIt);
+			//res = v.getListOfTypes(handleIt);
+			res = v.getVehicle('honda', 'accord', '2009', handleIt);
+			
+			//res = v.getMakes(handleIt);
+			//res = v.getMakesByYear('2003', handleIt);
+			//res = v.getFutureMakes(handleIt);
+			//res = v.getUsedMakes(handleIt);
+			//res = v.getNewMakes(handleIt);
+			//res = v.getMakeById('200002038', handleIt);
+			//res = v.getMakeByName('bmw', handleIt);
+			//res = v.getMakesByState('future', handleIt);
+			
+			//res = v.getModelsByMakeAndYear('acura', '2009', handleIt);
+			//res = v.getModelsByMakeAndState('acura', 'future', handleIt);
+			//res = v.getModelsByMakeId('200002038', handleIt);
+			//res = v.getModelsByMakeName('acura', handleIt);
+			//res = v.getFutureModelsByMakeId('200000081', handleIt);
+			//res = v.getUsedModelsByMakeId('200000081', handleIt);
+			//res = v.getNewModelsByMakeId('200000081', handleIt);
+			//res = v.getModelById('BMW_1_Series', handleIt);
+			//res = v.getModelByMakeAndModelName('bmw', '1series', handleIt);
+			
+			//res = v.getModelYearById('100503222', handleIt);
+			//res = v.getListOfYearsWithNew(handleIt);
+			//res = v.getListOfYearsWithNewOrUsed(handleIt);
+			//res = v.getListOfYearsWithUsed(handleIt);
+			//res = v.getFutureModelYearsByModelId('BMW_1_Series', handleIt);
+			//res = v.getModelYearsByMakeAndYear('honda', '2001', handleIt);
+			//res = v.getModelYearsByMakeAndModel('honda', 'accord', handleIt);
+			//res = v.getNewAndUsedModelYearsByMakeIdAndYear('200002038', '2009', handleIt);
+			//res = v.getNewModelYearsByModelId('BMW_1_Series', handleIt);
+			//res = v.getUsedModelYearsByModelId('BMW_1_Series', handleIt);
+			//res = v.getModelYearsByCatAndState('suv', 'new', handleIt);
+			
+			printCall(res);
+		})();
+	</script>
+</body>
+</html>

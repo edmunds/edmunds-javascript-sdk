@@ -4,12 +4,26 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title>Widget - Edmunds True Market Value</title>
 	<style type="text/css" media="screen">
-		select {
-			width: 200px;
-		}
 		#mywidget {
-			background: #fee;
-			width:300px;
+			background: #F2F2F2;
+			-moz-border-radius: 10px;
+			border-radius: 10px;
+			padding:5px;
+			text-align: center;
+			width:190px;
+		}
+		#mywidget img {
+			width: 180px;
+		}
+		#mywidget select {
+			margin-top: 5px;
+			width: 180px;
+		}
+		#mywidget .tmvwidget-aux {
+			margin-top: 20px;
+		}
+		#mywidget .tmvwidget-tmv {
+			margin-top: 10px;
 		}
 	</style>
 </head>
@@ -18,7 +32,7 @@
 	<script type="text/javascript" charset="utf-8" src="tmv.widget.1-0.js"></script>
 	<script type="text/javascript" charset="utf-8">
 		(function() {
-			var myWidget = new EDM.TMV('g2dgxhfatcspkunbb7m33zv6', {root: 'mywidget'});
+			var myWidget = new EDM.TMV('g2dgxhfatcspkunbb7m33zv6', {root: 'mywidget', baseClass: 'tmvwidget'});
 			myWidget.init();
 			myWidget.subscribe('init_complete', function() {
 				myWidget.render();

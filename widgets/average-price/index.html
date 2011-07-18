@@ -2,12 +2,13 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>Widget - Edmunds True Market Value</title>
+	<title>Widget - Edmunds True Market Value&reg;</title>
 	<style type="text/css" media="screen">
 		#mywidget {
 			background: #F2F2F2;
 			-moz-border-radius: 10px;
 			border-radius: 10px;
+			height: 235px;
 			padding:5px;
 			text-align: center;
 			width:190px;
@@ -25,9 +26,47 @@
 		#mywidget .tmvwidget-tmv {
 			margin-top: 10px;
 		}
+		#mywidget .tmvwidget-tmv-value {
+			font-weight: bold;
+		}
+		
+		.disabled {
+			color: #ccc;
+		}
 	</style>
 </head>
 <body>
+	<style type="text/css" media="screen">
+		#mywidget {
+			background: #F2F2F2;
+			-moz-border-radius: 10px;
+			border-radius: 10px;
+			height: 235px;
+			padding:5px;
+			text-align: center;
+			width:150px;
+		}
+		#mywidget img {
+			width: 140px;
+		}
+		#mywidget select {
+			margin-top: 5px;
+			width: 140px;
+		}
+		#mywidget .tmvwidget-aux {
+			margin-top: 20px;
+		}
+		#mywidget .tmvwidget-tmv {
+			margin-top: 10px;
+		}
+		#mywidget .tmvwidget-tmv-value {
+			font-weight: bold;
+		}
+		
+		.disabled {
+			color: #ccc;
+		}
+	</style>
 	<div id="mywidget"></div>
 	<script type="text/javascript" charset="utf-8" src="tmv.widget.1-0.js"></script>
 	<script type="text/javascript" charset="utf-8">

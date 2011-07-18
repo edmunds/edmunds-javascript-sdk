@@ -41,7 +41,7 @@ function EDMUNDSAPI(key) {
 	 *
 	 * @property _head
 	 * @private
-	 * @type object
+	 * @type DOMElement
 	 */
 	var _head = document.getElementsByTagName('head')[0];
 	

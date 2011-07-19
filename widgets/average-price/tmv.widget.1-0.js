@@ -341,9 +341,9 @@ EDM.prototype = {
 		 * @return void
 		 */
 		this.createYearsDropDown = function(obj) {
-			var node = document.getElementById(this.getBaseId() + "_year");
-			parent_node.replaceChild(_years_loading, node);
 			if (obj.value) {
+				var node = document.getElementById(this.getBaseId() + "_year");
+				parent_node.replaceChild(_years_loading, node);
 				var years = this.models[obj.value].years;
 				var myInput;
 				var s = document.createElement("select");
@@ -385,9 +385,9 @@ EDM.prototype = {
 		 * @return void
 		 */
 		this.createStylesDropDown = function(obj) {
-			var node = document.getElementById(this.getBaseId() + "_style");
-			parent_node.replaceChild(_styles_loading, node);
 			if (obj.value) {
+				var node = document.getElementById(this.getBaseId() + "_style");
+				parent_node.replaceChild(_styles_loading, node);
 				var that = this;
 				var make = document.getElementById(that.getBaseId() + "_make").value;
 				var model = document.getElementById(that.getBaseId() + "_model").value;
@@ -446,10 +446,15 @@ EDM.prototype = {
 					that.vehicleApi.invoke('/api/tmv/tmvservice/'+st, {styleid:obj.value, zip: zipcode}, function(data) {
 						var that2 = that;
 						var tmv = (data.tmv.nationalBasePrice.tmv) ? data.tmv.nationalBasePrice.tmv + '' : data.tmv.nationalBasePrice.usedTmvRetail + '';
+						if (tmv == '0') {
+							tmv = 'N/A';
+						} else {
+							tmv = '$'+tmv.replace(/(\d{0,3})(\d{3})/, '$1,$2');
+						}
 						var aux = document.createElement('div');
 						aux.className = that2.getBaseClass() + "-tmv";
 						aux.id = that2.getBaseId() + "_tmv";
-						aux.innerHTML = "TMV<sup>&reg;</sup>: <span class='"+that2.getBaseClass()+"-tmv-value'>$"+tmv.replace(/(\d{0,3})(\d{3})/, '$1,$2')+"</span>";
+						aux.innerHTML = "TMV<sup>&reg;</sup>: <span class='"+that2.getBaseClass()+"-tmv-value'>"+tmv+"</span>";
 						document.getElementById(that2.getBaseId() + '_body').appendChild(aux);
 					});
 				};

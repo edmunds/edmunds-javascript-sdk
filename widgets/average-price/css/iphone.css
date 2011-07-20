@@ -1,0 +1,38 @@
+body {
+    background-color: #fff; /* Background color */
+    color: #222;            /* Foreground color used for text */
+    font-family: Helvetica; 
+    font-size: 14px;
+    margin: 0;              /* Amount of negative space around the outside of the body */
+    padding: 0;             /* Amount of negative space around the inside of the body */
+}
+#mywidget {
+	background:inherit;
+	padding:10px;
+	text-align: center;
+	width:90%;
+}
+#mywidget img {
+	width: 100%;
+}
+#mywidget select {
+	font-size: 18px;
+	margin-top: 5px;
+	width: 90%;
+}
+#mywidget .tmvwidget-aux {
+	margin-top: 10px;
+}
+#mywidget .tmvwidget-aux input {
+	font-size: 18px;
+}
+#mywidget .tmvwidget-tmv {
+	font-size: 24px;
+	margin-top: 10px;
+}
+#mywidget .tmvwidget-tmv-value {
+	font-weight: bold;
+}
+.disabled {
+	color: #ccc;
+}

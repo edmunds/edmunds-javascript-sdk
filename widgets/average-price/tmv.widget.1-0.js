@@ -60,15 +60,7 @@ function EDM(api_key, config) {
 	 * @type string
 	 */
 	var _base_class;
-	
-	/**
-	 * The URL to where resourced (i.e. JS files for SDK) are
-	 *
-	 * @config _base_class
-	 * @type string
-	 */
-	this.resourceUrl = 'http://localhost/edmunds-javascript-sdk/src';
-	
+
 	/**
 	 * Get the API Key
 	 *
@@ -172,9 +164,7 @@ EDM.prototype = {
 	 * @return void
 	 */
 	init: function() {
-		if (!window.EDMUNDSAPI) {
-			this.addScript(this.resourceUrl + '/core.api.js');
-		}
+		alert('please implement this method');
 	},
 	/**
 	 * Render the widget
@@ -330,6 +320,7 @@ EDM.prototype = {
 					parent_node.replaceChild(s, _models_loading);
 					that.fire('models_done');
 				});
+				_gaq.push(['_trackEvent', 'Makes', obj.value, 'A make was selected']);
 			}
 		};
 		
@@ -374,6 +365,7 @@ EDM.prototype = {
 				}
 				parent_node.replaceChild(s, _years_loading);
 				this.fire('years_done');
+				_gaq.push(['_trackEvent', 'Models', obj.value, 'A model was selected']);
 			}
 		};
 		
@@ -416,6 +408,7 @@ EDM.prototype = {
 					parent_node.replaceChild(s, _styles_loading);
 					that.fire('styles_done');
 				});
+				_gaq.push(['_trackEvent', 'Years', obj.value, 'A year was selected']);
 			}
 		};
 		
@@ -443,6 +436,7 @@ EDM.prototype = {
 					}
 					var st = (document.getElementById(that.getBaseId() + '_year').value.indexOf('USED') === -1) ? 'calculatenewtmv' : 'calculatetypicallyequippedusedtmv';
 					var zipcode = (document.getElementById(that.getBaseId() + '_zipcode').value) ? document.getElementById(that.getBaseId() + '_zipcode').value : '90019';
+					_gaq.push(['_trackEvent', 'TVM', 'Click', 'TMV Value Requested']);
 					that.vehicleApi.invoke('/api/tmv/tmvservice/'+st, {styleid:obj.value, zip: zipcode}, function(data) {
 						var that2 = that;
 						var tmv = (data.tmv.nationalBasePrice.tmv) ? data.tmv.nationalBasePrice.tmv + '' : data.tmv.nationalBasePrice.usedTmvRetail + '';
@@ -456,11 +450,13 @@ EDM.prototype = {
 						aux.id = that2.getBaseId() + "_tmv";
 						aux.innerHTML = "TMV<sup>&reg;</sup>: <span class='"+that2.getBaseClass()+"-tmv-value'>"+tmv+"</span>";
 						document.getElementById(that2.getBaseId() + '_body').appendChild(aux);
+						_gaq.push(['_trackEvent', 'TVM', 'Received', 'TMV Value Received: '+tmv]);
 					});
 				};
 				aux.appendChild(myInput);
 				parent_node.replaceChild(aux, _aux_disabled);
 				this.fire('aux_done');
+				_gaq.push(['_trackEvent', 'Styles', obj.value, 'A style was selected']);
 			}
 		};
 		
@@ -558,17 +554,13 @@ EDM.prototype = {
 	 * @return void
 	 */
 	proto.init = function() {
-		EDM.prototype.init.apply(this);
 		// Set up the bare minimum HTML elements
 		this.htmlSetup();
-		if (!window.EDMUNDSAPI) {
-			this.addScript(this.resourceUrl + '/vehicle.api.js');
-		}
 		var _that = this;
-		this.subscribe('loading_complete', function() {
-			_that.vehicleApi = new EDMUNDSAPI.Vehicle(_that.getApiKey());
-			_that.fire('init_complete');
-		});
+		_that.vehicleApi = new EDMUNDSAPI.Vehicle(_that.getApiKey());
+		_that.fire('init_complete');
+		_gaq.push(['_trackPageview']);
+		_gaq.push(['_trackEvent', 'Widgets', 'TMV Simple', 'A simple TMV widget']);
 	};
 	
 	/**
@@ -582,4 +574,14 @@ EDM.prototype = {
 		this.createMakesDropDown();
 		this.fire('render_complete');
 	};
+	
+	// Add analytics!
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-24637375-1']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
 })();

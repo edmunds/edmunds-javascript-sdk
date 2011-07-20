@@ -1,0 +1,28 @@
+#mywidget {
+	background: #F2F2F2;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	height: 235px;
+	padding:5px;
+	text-align: center;
+	width:190px;
+}
+#mywidget img {
+	width: 180px;
+}
+#mywidget select {
+	margin-top: 5px;
+	width: 180px;
+}
+#mywidget .tmvwidget-aux {
+	margin-top: 20px;
+}
+#mywidget .tmvwidget-tmv {
+	margin-top: 10px;
+}
+#mywidget .tmvwidget-tmv-value {
+	font-weight: bold;
+}
+.disabled {
+	color: #ccc;
+}

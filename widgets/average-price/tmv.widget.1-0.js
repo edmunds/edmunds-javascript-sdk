@@ -267,13 +267,13 @@ EDM.prototype = {
 					_that.createModelsDropDown(this);
 				};
 				myInput = document.createElement("option") ;
-			    myInput.text = "Select a Make";
+			    myInput.innerHTML = "Select a Make";
 			    myInput.setAttribute("value", "");
 			    s.appendChild(myInput) ;
 				for (var k in _that.makes) {
 					if (_that.makes.hasOwnProperty(k)) {
 						myInput = document.createElement("option");
-					    myInput.text = k;
+					    myInput.innerHTML = k;
 					    myInput.setAttribute("value", _that.makes[k].niceName);
 					    s.appendChild(myInput);
 					}
@@ -306,13 +306,13 @@ EDM.prototype = {
 						that.createYearsDropDown(this);
 					};
 					myInput = document.createElement("option") ;
-				    myInput.text = "Select a Model";
+				    myInput.innerHTML = "Select a Model";
 				    myInput.setAttribute("value", "");
 				    s.appendChild(myInput) ;
 					for (var k in that.models) {
 						if (that.models.hasOwnProperty(k)) {
 							myInput = document.createElement("option");
-						    myInput.text = that.models[k].name;
+						    myInput.innerHTML = that.models[k].name;
 						    myInput.setAttribute("value", k);
 						    s.appendChild(myInput);
 						}
@@ -346,7 +346,7 @@ EDM.prototype = {
 					_that.createStylesDropDown(this);
 				};
 				myInput = document.createElement("option") ;
-			    myInput.text = "Select a Year";
+			    myInput.innerHTML = "Select a Year";
 			    myInput.setAttribute("value", "");
 			    s.appendChild(myInput) ;
 				for (var k in years) {
@@ -356,7 +356,7 @@ EDM.prototype = {
 						var len = years[k].length;
 						for (var i=0; i < len; i++) {
 							myInput = document.createElement("option");
-						    myInput.text = years[k][i];
+						    myInput.innerHTML = years[k][i];
 						    myInput.setAttribute("value", years[k][i]+''+k);
 						    grp.appendChild(myInput);
 						}
@@ -395,13 +395,13 @@ EDM.prototype = {
 						that.createAuxSection(this);
 					};
 					myInput = document.createElement("option") ;
-				    myInput.text = "Select a Style";
+				    myInput.innerHTML = "Select a Style";
 				    myInput.setAttribute("value", "");
 				    s.appendChild(myInput) ;
 					var len = that.styles.length;
 					for (var i=0; i<len; i++) {
 						myInput = document.createElement("option");
-						myInput.text = that.styles[i].name;
+						myInput.innerHTML = that.styles[i].name;
 						myInput.setAttribute("value", that.styles[i].id);
 						s.appendChild(myInput);
 					}
@@ -484,7 +484,7 @@ EDM.prototype = {
 				sel.className = _that.getBaseClass() + '-' + type;
 				sel.disabled = 'disabled';
 				var opt = document.createElement("option");
-			    opt.text = text;
+			    opt.innerHTML = text;
 			    opt.setAttribute("value", 0);
 			    sel.appendChild(opt);
 				return sel;
@@ -556,9 +556,8 @@ EDM.prototype = {
 	proto.init = function() {
 		// Set up the bare minimum HTML elements
 		this.htmlSetup();
-		var _that = this;
-		_that.vehicleApi = new EDMUNDSAPI.Vehicle(_that.getApiKey());
-		_that.fire('init_complete');
+		this.vehicleApi = new EDMUNDSAPI.Vehicle(this.getApiKey());
+		this.fire('init_complete');
 		_gaq.push(['_trackPageview']);
 		_gaq.push(['_trackEvent', 'Widgets', 'TMV Simple', 'A simple TMV widget']);
 	};
@@ -578,10 +577,7 @@ EDM.prototype = {
 	// Add analytics!
 	var _gaq = _gaq || [];
 	_gaq.push(['_setAccount', 'UA-24637375-1']);
-
-	(function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	})();
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
